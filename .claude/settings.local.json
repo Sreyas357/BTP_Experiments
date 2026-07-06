@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(tree:*)",
+      "Bash(source .venv/bin/activate)",
+      "Bash(python src/run_tests_vi.py)",
+      "Bash(echo \"EXIT:$?\")",
+      "Bash(python -c \":*)",
+      "Bash(kill %1)",
+      "Bash(python3 -c \":*)",
+      "Bash(python3 src/run_tests_vi.py)"
+    ]
+  }
+}

@@ -1,0 +1,7 @@
+numpy
+scipy
+cvxpy
+mosek
+matplotlib
+pandas
+pydantic

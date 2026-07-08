@@ -37,7 +37,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 from examples.congestion import CongestionExample  # noqa: E402
 from examples.congestion_destinations import DESTINATION_SHAPES  # noqa: E402
 from solvers.convex_opt import FusionMDPSolver  # noqa: E402
-from src.congestion_policy_io import metadata_from_spec, save_policy_json  # noqa: E402
+from src.helper_files.congestion_policy_io import metadata_from_spec, save_policy_json  # noqa: E402
 
 
 @dataclass(frozen=True)

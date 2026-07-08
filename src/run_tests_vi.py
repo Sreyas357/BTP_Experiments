@@ -8,7 +8,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from examples.path_concentration import Warehouse_path_concentration_mdp
 from solvers.value_iteration import MaxLinearValueIterationSolver
-from src.congestion_policy_io import save_policy_json
+from src.helper_files.congestion_policy_io import save_policy_json
 
 
 def _policy_rollout_from_vi(solver, mdp, horizon: int):
@@ -102,8 +102,8 @@ def _run_case(name: str, mdp, args, out_path: Path, use_pbvi: bool, penalty_cell
 
 def _build_parser() -> argparse.ArgumentParser:
     p = argparse.ArgumentParser(description="Run path concentration VI (exact + PBVI) and save policies")
-    p.add_argument("--rows", type=int, default=4)
-    p.add_argument("--cols", type=int, default=10)
+    p.add_argument("--rows", type=int, default=2)
+    p.add_argument("--cols", type=int, default=5)
     p.add_argument("--horizon", type=int, default=6)
     p.add_argument("--gamma", type=float, default=1.0)
     p.add_argument("--time-penalty", type=float, default=1.0)

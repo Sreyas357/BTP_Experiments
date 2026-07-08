@@ -69,45 +69,15 @@ def build_ascii_art_destination_cells(
     return sorted(dest)
 
 
-def dest_right_edge(rows: int, cols: int) -> list[tuple[int, int]]:
-    return [(cols - 1, r) for r in range(rows)]
-
-
-def dest_h_center(rows: int, cols: int) -> list[tuple[int, int]]:
-    """Centered 'H' pattern.
-
-    - Height uses all rows.
-    - Width is half the grid width (rounded up), centered horizontally.
-    """
-
-    if rows <= 0 or cols <= 0:
-        return []
-
-    h_width = max(2, (cols + 1) // 2)
-    left_col = (cols - h_width) // 2
-    right_col = left_col + h_width - 1
-    mid_row = rows // 2
-
-    dest: set[tuple[int, int]] = set()
-    for r in range(rows):
-        dest.add((left_col, r))
-        dest.add((right_col, r))
-    for c in range(left_col, right_col + 1):
-        dest.add((c, mid_row))
-    return sorted(dest)
-
-
-def dest_center_block(rows: int, cols: int) -> list[tuple[int, int]]:
-    if rows <= 0 or cols <= 0:
-        return []
-
-    block_h = max(1, rows // 3)
-    block_w = max(1, cols // 3)
-    r0 = (rows - block_h) // 2
-    c0 = (cols - block_w) // 2
-
-    return [(c, r) for r in range(r0, r0 + block_h) for c in range(c0, c0 + block_w)]
-
+_H_SHAPE = [
+    " #       # ",
+    " #       # ",
+    " #       # ",
+    " ######### ",
+    " #       # ",
+    " #       # ",
+    " #       # ",
+]
 
 _IITB_ART = [
     "### ### ##### #### ",
@@ -149,6 +119,8 @@ _SMILEY_ART = [
     "   #####   ",
 ]
 
+def dest_h_shape(rows: int, cols: int) -> list[tuple[int, int]]:
+    return build_ascii_art_destination_cells(_H_SHAPE, rows=rows, cols=cols, on_chars=("#",))
 
 def dest_word_iitb(rows: int, cols: int) -> list[tuple[int, int]]:
     return build_ascii_art_destination_cells(_IITB_ART, rows=rows, cols=cols, on_chars=("#",))
@@ -163,9 +135,7 @@ def dest_smiley(rows: int, cols: int) -> list[tuple[int, int]]:
 
 
 DESTINATION_SHAPES: dict[str, Callable[[int, int], list[tuple[int, int]]]] = {
-    "right_edge": dest_right_edge,
-    "h_center": dest_h_center,
-    "center_block": dest_center_block,
+    "h_center": dest_h_shape,
     "iitb": dest_word_iitb,
     "hello_world": dest_word_hello_world,
     "smiley": dest_smiley,

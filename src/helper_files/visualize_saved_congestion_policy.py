@@ -17,8 +17,8 @@ from pathlib import Path
 # Ensure repo-root modules (examples/, solvers/) are importable when run as a script.
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
-from src.congestion_policy_io import load_policy_json  # noqa: E402
-from src.visualize_policy import animate_congestion_policy  # noqa: E402
+from src.helper_files.congestion_policy_io import load_policy_json  # noqa: E402
+from src.helper_files.visualize_policy import animate_congestion_policy  # noqa: E402
 
 
 def main(argv: list[str] | None = None) -> int:

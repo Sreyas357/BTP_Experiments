@@ -204,13 +204,13 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument(
         "--sizes",
         nargs="+",
-        default=["5x5", "10x10", "15x15"],
+        default=["20x20" , "40x40"],
         help="Grid sizes as ROWSxCOLS (default: 20x20 40x40 80x80 )",
     )
     parser.add_argument(
         "--shapes",
         nargs="+",
-        default=["iitb", "hello_world", "smiley"],
+        default=["h_center"],
         choices=list(DESTINATION_SHAPES.keys()),
         help="Destination shapes to run",
     )
@@ -251,7 +251,7 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument(
         "--timeout",
         type=float,
-        default=100.0,
+        default=600.0,
         help="Per-experiment wall-clock timeout in seconds (default: 100)",
     )
     parser.add_argument(

@@ -202,7 +202,7 @@ def main():
     out_dir = Path(args.out_dir)
     out_dir.mkdir(parents=True, exist_ok=True)
 
-    for method in ["vi_pbvi"]:
+    for method in ["vi_exact"]:
         out_path = out_dir / _build_output_name(method, args)
         cmd = _build_worker_cmd(args, method, out_path)
         try:

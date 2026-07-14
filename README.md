@@ -5,7 +5,7 @@ python3 -m venv venv
 source venv/bin/activate
 
 # Activate (Windows)
-venv\Scripts\activate
+venv\Scripts\actate
 
 # Upgrade pip
 pip install --upgrade pip

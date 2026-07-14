@@ -17,10 +17,8 @@ solvers/__init__.py
 solvers/convex_opt.py
 solvers/value_iteration.py
 src/__init__.py
-src/congestion_policy_io.py
 src/run_congestion_experiments.py
+src/run_congestion_experiments_2.py
 src/run_sirv_epidemic_test.py
 src/run_tests_vi.py
-src/visualize_policy.py
-src/visualize_saved_congestion_policy.py
-src/visualize_saved_vi_policy.py
+src/run_tests_vi_2.py

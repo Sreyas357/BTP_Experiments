@@ -6,7 +6,7 @@ from mdp import MDP
 from mdp.reward import LinearReward, MaxLinearReward
 
 
-class Warehouse_path_concentration_mdp:
+class Warehouse_path_concentration:
     def __init__(
         self,
         rows: int = 2,
@@ -217,7 +217,7 @@ def generate_warehouse_path_concentration_mdp(
     p_correct: float = 0.8,
     random_seed: Optional[int] = None,
 ):
-    return Warehouse_path_concentration_mdp(
+    return Warehouse_path_concentration(
         rows=rows,
         cols=cols,
         time_penalty=time_penalty,
